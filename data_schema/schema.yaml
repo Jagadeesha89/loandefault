@@ -1,0 +1,40 @@
+columns:
+  - Age: int64
+  - Income: int64
+  - LoanAmount: int64
+  - CreditScore: int64
+  - MonthsEmployed: int64
+  - NumCreditLines: int64
+  - InterestRate: float64
+  - LoanTerm: int64
+  - DTIRatio: float64
+  - Education: object
+  - EmploymentType: object
+  - MaritalStatus: object
+  - HasMortgage: object
+  - HasDependents: object
+  - LoanPurpose: object
+  - HasCoSigner: object
+  - Default: int64
+
+numerical_columns:
+  - Age
+  - Income
+  - LoanAmount
+  - CreditScore
+  - MonthsEmployed
+  - NumCreditLines
+  - InterestRate
+  - LoanTerm
+  - DTIRatio
+  - Default
+
+
+categorical_columns:
+  - Education
+  - EmploymentType
+  - MaritalStatus
+  - HasMortgage
+  - HasDependents
+  - LoanPurpose
+  - HasCoSigner
