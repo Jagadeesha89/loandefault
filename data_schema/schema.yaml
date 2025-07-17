@@ -38,3 +38,27 @@ categorical_columns:
   - HasDependents
   - LoanPurpose
   - HasCoSigner
+
+ord_encode:
+  - Education
+  - EmploymentType
+  - HasMortgage
+  - HasDependents 
+  - LoanPurpose
+  - HasCoSigner
+
+one_ht_encode:
+  - MaritalStatus
+
+std_scaler:
+  - Age
+  - Income
+  - LoanAmount
+  - CreditScore
+  - MonthsEmployed
+  - NumCreditLines
+  - InterestRate
+  - LoanTerm
+  - DTIRatio
+  
+
