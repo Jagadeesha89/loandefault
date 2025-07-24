@@ -55,7 +55,7 @@ def load_object(file_path:str,)-> object:
             raise Exception(f"this file: {file_path} does not exists")
         with open(file_path,'rb') as file_obj:
             print(file_obj)
-            pickle.load(file_obj)
+            return pickle.load(file_obj)
     except Exception as e:
         raise LoandefaultException(e,sys)
     
