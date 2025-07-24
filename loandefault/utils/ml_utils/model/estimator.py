@@ -9,7 +9,7 @@ from loandefault.logging.logger import logging
 class LoanDefaultModel:
     def __init__(self,preprocessor,model):
         try:
-            self.preprocessor =preprocessor
+            self.preprocessor = preprocessor
             self.model=model
         except Exception as e:
             raise LoandefaultException(e,sys)

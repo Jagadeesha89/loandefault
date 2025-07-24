@@ -21,7 +21,11 @@ from sklearn.ensemble import(
     GradientBoostingClassifier,
     RandomForestClassifier,
 )
-import mlflow
+#import mlflow
+
+#import dagshub
+#dagshub.init(repo_owner='Jagadeesha89', repo_name='loandefault', mlflow=True)
+
 
 
 class ModelTrainer:
@@ -32,18 +36,18 @@ class ModelTrainer:
         except Exception as e:
             raise LoandefaultException (e,sys)
         
-    def track_mlflow(self,best_model,classsificationmetric):
-        with mlflow.start_run():
-            f1_score=classsificationmetric.f1_score
-            precision_score=classsificationmetric.precision_score
-            recall_score=classsificationmetric.recall_score
-            accuracy_score=classsificationmetric.accuracy_score
+    #def track_mlflow(self,best_model,classsificationmetric):
+        #with mlflow.start_run():
+            #f1_score=classsificationmetric.f1_score
+            #precision_score=classsificationmetric.precision_score
+            #recall_score=classsificationmetric.recall_score
+            #accuracy_score=classsificationmetric.accuracy_score
 
-            mlflow.log_metric("f1_score",f1_score)
-            mlflow.log_metric("precisionscore",precision_score)
-            mlflow.log_metric("recall_score",recall_score)
-            mlflow.log_metric("accuracy_score",accuracy_score)
-            mlflow.sklearn.log_model(best_model,"model")
+            #mlflow.log_metric("f1_score",f1_score)
+            #mlflow.log_metric("precisionscore",precision_score)
+            #mlflow.log_metric("recall_score",recall_score)
+            #mlflow.log_metric("accuracy_score",accuracy_score)
+            #mlflow.sklearn.log_model(best_model,"model")
 
         
     def train_model(self,x_train,y_train,x_test,y_test):
@@ -95,7 +99,7 @@ class ModelTrainer:
         classfication_train_metrics=get_classification_score(y_true=y_train,y_pred=y_train_pred)
 
         ##track the mlflow
-        self.track_mlflow(best_model,classfication_train_metrics)
+        #self.track_mlflow(best_model,classfication_train_metrics)
 
 
         y_test_predict=best_model.predict(x_test)
@@ -107,6 +111,8 @@ class ModelTrainer:
 
         loan_default_model=LoanDefaultModel(preprocessor=preprocessor,model=best_model)
         save_object(self.model_trainer_config.trained_model_file_path,obj=loan_default_model)
+
+        save_object("final_models/model.pkl",best_model)
 
         model_trainer_artifact=ModelTrainerArtifact(trained_model_file_path=self.model_trainer_config.trained_model_file_path,
                                                     train_metric_artifact=classfication_train_metrics,

@@ -45,7 +45,7 @@ DATA_VALIDATION_VALID_DIR = "validated"
 DATA_VALIDATION_INVALID_DIR = "invalid"
 DATA_VALIDATION_DRIFT_REPORT_DIR = "drift_report"
 DATA_VALIDATION_DRIFT_REPORT_FILE_NAME = "report.yaml"
-PREPROCESSING_OBJECT_FILE_NAME:str = "preprocessor.pkl"
+PREPROCESSING_OBJECT_FILE_NAME:str = "preprocesser.pkl"
 
 """
 Data transformation realted constant start with DATA_transformation VAR name

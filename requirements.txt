@@ -6,6 +6,9 @@ certifi
 scikit-learn
 pyaml
 mlflow
+fastapi[standard]
+uvicorn
+dagshub
 
 
 
