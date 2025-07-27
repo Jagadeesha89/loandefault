@@ -105,11 +105,11 @@ class ModelTrainer:
         y_test_predict=best_model.predict(x_test)
         classfication_test_metrics=get_classification_score(y_true=y_test,y_pred=y_test_predict)
 
-        preprocessor = load_object(file_path=self.data_transformation_artifact.transformed_object_file_path)
+        preprocesser = load_object(file_path=self.data_transformation_artifact.transformed_object_file_path)
         model_dir_path=os.path.dirname(self.model_trainer_config.trained_model_file_path)
         os.makedirs(model_dir_path,exist_ok=True)
 
-        loan_default_model=LoanDefaultModel(preprocessor=preprocessor,model=best_model)
+        loan_default_model=LoanDefaultModel(preprocesser=preprocesser,model=best_model)
         save_object(self.model_trainer_config.trained_model_file_path,obj=loan_default_model)
 
         save_object("final_models/model.pkl",best_model)

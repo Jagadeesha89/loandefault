@@ -7,16 +7,16 @@ from loandefault.exception.exception import LoandefaultException
 from loandefault.logging.logger import logging
 
 class LoanDefaultModel:
-    def __init__(self,preprocessor,model):
+    def __init__(self,preprocesser,model):
         try:
-            self.preprocessor = preprocessor
+            self.preprocesser = preprocesser
             self.model=model
         except Exception as e:
             raise LoandefaultException(e,sys)
         
     def predict(self,x):
         try:
-            x_tranform=self.preprocessor.transform(x)
+            x_tranform=self.preprocesser.transform(x)
             y_hat =self.model.predict(x_tranform)
             return y_hat
         except Exception as e:

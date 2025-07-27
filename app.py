@@ -65,7 +65,7 @@ async def predict_route(request:Request,file:UploadFile=File(...)):
         df=pd.read_csv(file.file)
         preprocesser=load_object("final_models/preprocesser.pkl")
         final_model=load_object("final_models/model.pkl")
-        loan_default_model=LoanDefaultModel(preprocessor=preprocesser,model=final_model)
+        loan_default_model=LoanDefaultModel(preprocesser=preprocesser,model=final_model)
         print(df.iloc[0])
         y_pred=loan_default_model.predict(df)
         print(y_pred)
@@ -76,4 +76,4 @@ async def predict_route(request:Request,file:UploadFile=File(...)):
     except Exception as e:
         raise LoandefaultException(e,sys)  
 if __name__=="__main__":
-    app_run(app,host="localhost",port=8000)
+    app_run(app,host="0.0.0.0",port=8000)
